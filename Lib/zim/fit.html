@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>ZIM Frame - Fit Template</title>
+
+    <!-- Welcome to ZIM at https://zimjs.com - Code Creativity!                              -->
+    <!-- ZIM runs on the HTML Canvas powered by JavaScript and CreateJS https://createjs.com -->
+    <!-- Founded by Inventor Dan Zen - http://danzen.com - Canadian New Media Award Winner   -->
+    <!-- ZIM is free to use. You can donate to help improve ZIM at https://zimjs.com/donate  -->
+
+    <script src="../createjs.js"></script>
+    <script src="../zim.js"></script>
+    <!-- use zimjs.com/distill for minified individual functions! -->
+
+    <script>
+        // SCALING OPTIONS
+        // scaling can have values as follows with full being the default
+        // "fit"		sets canvas and stage to dimensions and scales to fit inside window size
+        // "outside"	sets canvas and stage to dimensions and scales to fit outside window size
+        // "full"		sets stage to window size with no scaling
+        // "tagID"		add canvas to HTML tag of ID - set to dimensions if provided - no scaling
+
+        var scaling = "fit"; // fit scales to fit the browser window while keeping the aspect ratio
+        var width = 1024; // can go higher...
+        var height = 768;
+        var color = green; // ZIM colors now available globally
+        var outerColor = dark;
+
+        var frame = new Frame(scaling, width, height, color, outerColor); // see docs for more options and info
+        frame.on("ready", function() {
+            zog("ready from ZIM Frame");
+
+            var stage = frame.stage;
+            var stageW = frame.width;
+            var stageH = frame.height;
+
+            // put your code here (you can delete this code)
+
+            var button = new Button(140, 60, "ZIM").center(); // centers on stage - addTo() and others as well!
+            button.on("click", function() { // on() is like addEventListener()
+                zgo("http://zimjs.com/frame.html"); // or relative URL, target is available too
+            });
+
+            stage.update(); // update the stage to see any changes
+
+        }); // end of ready
+    </script>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+</head>
+
+<body>
+    <!-- canvas with id="myCanvas" is made by zim Frame -->
+</body>
+
+</html>

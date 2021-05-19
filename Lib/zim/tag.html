@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>ZIM Frame - Tag (Dimensionless) Template</title>
+    <script src="../createjs.js"></script>
+    <script src="../zim.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #ccc;
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        #holder {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+            z-index: 2;
+            position: fixed;
+        }
+    </style>
+
+    <script>
+        var frame = new Frame("holder");
+        frame.on("ready", function() {
+
+            var stage = frame.stage;
+            var stageW = frame.width;
+            var stageH = frame.height;
+            frame.color = pink;
+
+            var button = new Button(140, 60, "ZIM", frame.grey, frame.dark);
+            button.on("click", function() {});
+
+            frame.on("resize", resize);
+
+            function resize(e) {
+                stageW = frame.width;
+                stageH = frame.height;
+                button.scaleTo(stage, 30);
+                button.center();
+                stage.update();
+            }
+
+        });
+    </script>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+</head>
+
+<body>
+
+    <div id="holder"></div>
+
+</body>
+
+</html>

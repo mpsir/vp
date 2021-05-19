@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>ZIM Frame - Tag (Dimensions) Template</title>
+    <script src="../createjs.js"></script>
+    <script src="../zim.js"></script>
+    <style>
+        body {
+            background-color: #ccc;
+        }
+        
+        article {
+            font-size: 14px;
+            font-family: verdana;
+            padding: 20px;
+            margin: 20px;
+            color: #555;
+            position: relative;
+            width: 60%;
+            border: thin solid #888;
+        }
+        
+        #holder {
+            position: relative;
+            margin: 20px 0px;
+        }
+        
+        #holderCanvas {
+            width: 80%;
+        }
+    </style>
+
+    <script>
+        var scaling = "holder";
+        var width = 1024;
+        var height = 768;
+        var color = brown;
+        var frame = new Frame(scaling, width, height, color);
+        frame.on("ready", function() {
+            zog("ready from ZIM Frame");
+
+            zog(frame.canvasID)
+
+            var stage = frame.stage;
+            var stageW = frame.width;
+            var stageH = frame.height;
+
+            var button = new Button(140, 60, "ZIM", frame.grey, frame.dark)
+                .scaleTo(stage, 30)
+                .center(stage);
+
+            stage.update();
+            button.on("click", function() {
+                zgo("http://zimjs.com/frame.html");
+            });
+
+        });
+    </script>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+</head>
+
+<body>
+    <article>
+        <h3>ZIM Frame Tag mode (with dimensions)</h3>
+        <p>This template shows how to place a DIMENSIONED Canvas in an HTML element with a specified on tag ID (holder in this case). ZIM Frame will make the Canvas with an id the same as the holder tag but with the word Canvas added to the end. You may
+            choose to scale the canvas with CSS - just try to scale from big to small - like you would a picture. The stage size will be the dimensions you provide to Frame regardless of scaling (like the fit mode).</p>
+        <div id="holder"></div>
+        <p>Frame uses appendChild() to add the canvas tag to the specified element.
+            <p>
+                <a href="http://zimjs.com/frame.html" style="outline:none;"><img src="content/logo.png" style="width:100px; margin-bottom:-10px;" /></a>
+            </p>
+    </article>
+</body>
+
+</html>
