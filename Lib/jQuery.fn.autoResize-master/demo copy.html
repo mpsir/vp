@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="a5">
+    </div>
+    <textarea class="res-inp" style='width:100%;'></textarea>
+    <br>
+    <input class="res-inp" style="padding-left:10px" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="jquery.autoresize.js"></script>
+    <script>
+        $('#a5').on('DOMSubtreeModified', '#a5', function() {
+            console.log('changed');
+        });
+        $('.res-inp').autoResize({
+            onBeforeResize: function() {
+                //console.log('Before');
+                //$(this).css('background', 'red');
+            },
+            onAfterResize: function() {
+                //$(this).css('background', '');
+            },
+            maxWidth: screen.width - 33
+        });
+    </script>
+</body>
+
+</html>
